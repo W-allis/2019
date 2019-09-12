@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		
+		class $Promise {
+			
+			status = 'pendding'
+			
+			value
+			
+			onResolve = []
+			
+			onReject = []
+			
+			constructor(callback) {
+				this.publisher = function wrap(...args) {
+					
+					callback(...args)
+					
+					return this
+				}
+			}
+			
+			static resolve(value) {
+				
+				if (this.status === 'pendding' || this.status === 'resolve') {
+					this.value = value
+					this.status = 'resolve'
+					this.value = this.onResolve(value)
+				}
+			}
+			
+			static reject(error) {
+				this.status = 'error'
+				this.onRject(this.value)
+			}
+			
+			then(callback) {
+				function wrap(value) {
+					try{
+						callback(value)
+					}catch(e){
+						//TODO handle the exception
+						$Promise.reject.call(this, e)
+					}
+				}
+				if (this.status === 'pendding') {					
+					this.onResolve = wrap
+
+				}
+				if (this.status === 'resolve') {
+					wrap(this.value)
+				}
+
+				return this.publisher($Promise.resolve.bind(this), $Promise.reject.bind(this))
+
+			}
+			
+			catch() {
+				function wrap(value) {
+					try{
+						callback(value)
+					}catch(e){
+						//TODO handle the exception
+						throw e
+					}
+				}
+				this.onReject.push(wrap)
+				return this.publisher($Promise.resolve.bind(this), $Promise.reject.bind(this))
+			}
+		}
+		
+
+		new $Promise((resolve, reject) => {
+
+			resolve(3)
+			resolve(5)
+			
+			setTimeout(function() {
+				resolve(4)
+			}, 2000)
+
+		}).then(res => {
+			console.log(res)
+		}).then(res => {
+			console.log(res)
+		})
+
+	</script>
+</body>
+</html>

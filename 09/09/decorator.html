@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+</head>
+<body>
+	<script src="./dist/out-tsc/decorator.js" type="text/javascript" charset="utf-8"></script>
+	
+	<script type="text/javascript">
+		var arr = [0, 1]
+		arr[0] = [arr[1], arr[1] = arr[0]][0]
+		
+		console.log(arr)
+		
+		var arr1 =  [55, 15, 33, 38, 41, 56, 78, 83, 88, 79, 98]
+		
+		console.log(arr1.slice(0, 4))
+		
+		var arr = []
+		
+		function json(value) {
+			return value.length
+		}
+		
+		arr = null
+		
+		json(arr)
+	</script>
+</body>
+</html>

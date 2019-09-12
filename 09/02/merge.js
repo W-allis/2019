@@ -78,7 +78,7 @@ var b = {
 }
 //
 //
-console.log(merge(a, b))
+//console.log(merge(a, b))
 //b.hobbit.playFooterball.shecduler = '123456'
 //console.log(b)
 //

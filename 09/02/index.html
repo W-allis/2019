@@ -60,5 +60,34 @@
 		
 		
 	</script>
+	
+	<script type="text/javascript">
+		console.log(1)
+		
+		var obser = Rx.Observable.create(function(observer) {
+			console.log(4)
+			observer.next(2)
+			console.log(5)
+			
+			observer.next(6)
+			
+//			throw 123
+		})
+		
+//		var pro = new Promise((resolve) => {
+//			console.log(6)
+//			resolve(7)
+//		}).then(console.log)
+////		
+		// 多播
+		obser.subscribe(console.log, function(error) {
+			console.error(error + 123)
+		})
+		
+		obser.subscribe(console.log, function(error) {
+			console.error(error + 321)
+		})
+		console.log(3)
+	</script>
 </body>
 </html>
