@@ -2,6 +2,7 @@ function log(target: any) {
   console.log(target)
   return target
 }
+
 @log
 class Car {
   run() {
