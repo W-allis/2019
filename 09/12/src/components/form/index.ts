@@ -8,7 +8,7 @@ declare interface Model {
 }
 
 @Component({
-  template: './index.html'
+  template: `<form></form>`
 })
 export default class FormComponent implements OnInit {
   

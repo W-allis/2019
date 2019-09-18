@@ -29,8 +29,8 @@ module.exports = {
 	mode: 'development',
 
 	entry: {
-		pageOne: './src/pageOne.ts',
-		pageTwo: './src/pageTwo.ts'
+		pageOne: ['babel-polyfill', './src/pageOne.ts'],
+		pageTwo: ['./src/pageTwo.ts']
 	},
 
 	output: {
@@ -38,12 +38,25 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist')
 	},
 
-	plugins: [new webpack.ProgressPlugin(), new HtmlWebpackPlugin()],
+	devtool: 'source-map',
+
+	plugins: [
+		new webpack.ProgressPlugin(), 
+		new HtmlWebpackPlugin({
+			template: './index.html'
+		})
+	],
 
 	module: {
 		rules: [
 			{
+				test: /\.html$/,
+				loader: 'raw-loader',
+				// include: [path.resolve(__dirname, 'src')]
+			},
+			{
 				test: /.(ts|tsx)?$/,
+				// loader: 'awesome-typescript-loader',
 				loader: 'ts-loader',
 				include: [path.resolve(__dirname, 'src')],
 				exclude: [/node_modules/]
@@ -73,6 +86,7 @@ module.exports = {
 	},
 
 	resolve: {
-		extensions: ['.tsx', '.ts', '.js']
+		extensions: ['.tsx', '.ts', '.js'],
+		modules: [path.resolve(__dirname), 'node_modules']
 	}
 };
