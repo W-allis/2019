@@ -1,0 +1,55 @@
+html, body {
+    /* height: 100%; */
+}
+
+.vs-container {
+    max-width: 980px;
+    margin: 0 auto;
+    /* background: chartreuse; */
+    /* height: 100%; */
+}
+
+.vs-title h2 {
+    font-size: 36px;
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+.vs-search {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 50px;
+}
+
+.vs-search .mdui-textfield {
+    width: 40%;
+    margin-right: 20px;
+    padding-bottom: 0;
+}
+
+.vs-visit-count {
+    display: flex;
+    justify-content: space-between;
+}
+
+.error .mdui-textfield-label {
+    color: red;
+}
+
+.error .mdui-textfield-input {
+    border-bottom-color: red;
+}
+
+/* reset css */
+
+.mdui-list-item:hover {
+    background: none;
+}
+
+.mdui-textfield-focus .mdui-textfield-label {
+    color: rgba(0, 0, 0, .65) !important;
+}
+
+.mdui-textfield-focus .mdui-textfield-input {
+    border-bottom-color: rgba(0, 0, 0, .65) !important;
+}

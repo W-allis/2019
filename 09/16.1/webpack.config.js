@@ -55,7 +55,16 @@ module.exports = {
 				loader: 'babel-loader',
 
 				options: {
-					plugins: ['syntax-dynamic-import'],
+					plugins: [
+						'syntax-dynamic-import',
+						[
+							'component',
+							{
+								libraryName: 'element-ui',
+								styleLibraryName: 'theme-chalk'
+							}
+						]
+					],
 
 					presets: [
 						[
