@@ -7,6 +7,12 @@ declare interface Model {
   password: string
 }
 
+import html from './index.html'
+
+console.log(html)
+
+console.log(require('./index.html'))
+
 @Component({
   template: './index.html'
 })

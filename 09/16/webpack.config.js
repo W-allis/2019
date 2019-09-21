@@ -27,39 +27,38 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	mode: 'development',
-
-	entry: {
-		pageOne: './src/pageOne.ts',
-		pageTwo: './src/pageTwo.ts'
-	},
+	entry: './src/index.js',
 
 	output: {
 		filename: '[name].[chunkhash].js',
 		path: path.resolve(__dirname, 'dist')
 	},
 
-	devtool: 'source-map',
-
-	plugins: [
-		new webpack.ProgressPlugin(), 
-		new HtmlWebpackPlugin({
-			template: './index.html'
-		})
-	],
+	plugins: [new webpack.ProgressPlugin(), new HtmlWebpackPlugin()],
 
 	module: {
 		rules: [
 			{
-				test: /\.html$/,
-				loader: 'raw-loader',
-				// include: [path.resolve(__dirname, 'src')]
+				test: /.(js|jsx)$/,
+				include: [path.resolve(__dirname, 'src')],
+				loader: 'babel-loader',
+
+				options: {
+					plugins: ['syntax-dynamic-import'],
+
+					presets: [
+						[
+							'@babel/preset-env',
+							{
+								modules: false
+							}
+						]
+					]
+				}
 			},
 			{
-				test: /.(ts|tsx)?$/,
-				// loader: 'awesome-typescript-loader',
-				loader: 'ts-loader',
-				include: [path.resolve(__dirname, 'src')],
-				exclude: [/node_modules/]
+				test: /.html$/,
+				loader: 'html-loader'
 			}
 		]
 	},
@@ -82,11 +81,6 @@ module.exports = {
 
 	devServer: {
 		open: true,
-		port: 8091
-	},
-
-	resolve: {
-		extensions: ['.tsx', '.ts', '.js'],
-		modules: [path.resolve(__dirname), 'node_modules']
+		port: 9531
 	}
 };
