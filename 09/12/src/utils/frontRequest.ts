@@ -1,16 +1,23 @@
 import request from './request'
 import axios from 'axios'
-
+console.dir(axios)
 import { $RequestConfig } from './type.d'
 
-(<any>axios).cancel = function() {
+// (<any>axios).cancel = function() {
   
-}
+// }
 // import AxiosInstance from 'axios/index.d'
 // console.log(AxiosInstance)
 
 class $FrontRequest {
-  constructor() {
+
+  private source: any
+
+  constructor(config: $RequestConfig) {
+    this.source = this.token()
+  }
+
+  private init() {
     
   }
 
@@ -19,14 +26,21 @@ class $FrontRequest {
 
     return token.source()
   }
+
+  cancel() {
+    this.source.cancel()
+  }
 }
 
 function $request(options) {
   // return request(options)
+  return new $FrontRequest(options)
 }
 
 $request.create = function(config: $RequestConfig) {
-  
+  // if (typeof config !== 'number' || typeof config !== 'function') return new Error()
+
+  return $request
 }
 
 
