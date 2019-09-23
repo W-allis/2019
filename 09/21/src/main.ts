@@ -7,7 +7,7 @@ import { Message } from './utils/index'
 
 import { result } from './api/visit'
 
-// import { resultComponent } from './components'
+import { resultComponent } from './components'
 
 console.log(result)
 
@@ -26,7 +26,6 @@ $('.vs-btn').on('click', function() {
 })
 
 $('.idNumber').on('focus', function() {
-//   const idNumber = $('.idNumber').val() && $('.idNumber').val().trim()
   $('.idItem').removeClass('error')  
 })
 
@@ -45,6 +44,14 @@ function validate() {
   }
 }
 
-// $('.vs-result').html(resultComponent({
-  
-// }))
+$('.vs-result').html(resultComponent({
+  amount: 7000,
+  productName: '清华同方',
+  history: '10',
+  list: [
+    {
+      visitTime: '2019-09-22 12:00:00',
+      mobile: '17317504517'
+    }
+  ]
+}))

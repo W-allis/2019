@@ -32,12 +32,32 @@ html, body {
     justify-content: space-between;
 }
 
+.vs-tag {
+    display: inline-block;
+    background: #f00000;
+    color: #fff;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    padding: 5px 5px 5px 3px;
+    text-align: center;
+    line-height: 15px;
+}
+
 .error .mdui-textfield-label {
     color: red;
 }
 
 .error .mdui-textfield-input {
     border-bottom-color: red;
+}
+
+.vs-loading::after {
+    display: block;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
 }
 
 /* reset css */

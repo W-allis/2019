@@ -82,7 +82,10 @@ module.exports = {
 				test: /.css$/,
 				use: [
 					{
-						loader: miniCssExtractPlugin.loader
+						loader: miniCssExtractPlugin.loader,
+						options: {
+							publicPath: '../../'
+						}
 					},
 					// {
 					// 	loader: 'style-loader'

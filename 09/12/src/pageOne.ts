@@ -10,7 +10,7 @@ const request = axios.create({
 
 }) 
 
-request.cancel = function() {
+// request.cancel = function() {
 
-}
+// }
 
