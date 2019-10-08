@@ -1,5 +1,5 @@
 import { OnInit } from "../../hooks/index"
-import { Component } from "../../decorators/component"
+import { Component } from "../../decorators"
 import ApiService from "../../service/request.service"
 
 declare interface Model {

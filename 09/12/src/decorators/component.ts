@@ -1,4 +1,5 @@
 import 'reflect-metadata'
+import fe from '../fe'
 
 declare interface ComponentOption {
   template: string,
@@ -10,13 +11,13 @@ declare interface ComponentOption {
 
 // html引入问题
 // providers供应商问题
-export function Component(options: ComponentOption) {
+export default function Component(options) {
+  return target => {
+    // console.log(target)
+    const instance = Reflect.construct(target, [null])
 
-  return function(target: any) {
-    // console.dir()
-
-    // console.dir()
-
-    return target
+    fe._events.forEach(event => {
+      event(instance)
+    })
   }
 }

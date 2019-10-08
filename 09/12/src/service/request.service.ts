@@ -1,10 +1,13 @@
-import { Injectable } from 'src/decorators/injectable'
+import { Injectable } from '../decorators'
 
 @Injectable()
-export default class ApiService {
+export default class RequestService {
+
+  baseUri: string = 'http://www.baidu.com'
+
   constructor() {}
 
-  getName() {
-    return 'wallis'
+  post() {
+
   }
 }
