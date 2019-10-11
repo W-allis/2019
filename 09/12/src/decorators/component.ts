@@ -14,7 +14,9 @@ declare interface ComponentOption {
 export default function Component(options) {
   return target => {
     // console.log(target)
-    const instance = Reflect.construct(target, [null])
+    const providers = Reflect.getMetadata('design:paramtypes', target)
+
+    const instance = Reflect.construct(target, providers.map(item => fe._providers.get(item.name)))
 
     fe._events.forEach(event => {
       event(instance)
