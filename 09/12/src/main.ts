@@ -17,7 +17,7 @@ class NameModule {
   @Observable
   private name: string = '123'
 
-  constructor(uesr: UserApi) {
+  constructor(public user: UserApi) {
     console.dir(this)
   }
 

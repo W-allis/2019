@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script src="https://cdn.bootcss.com/rxjs/5.5.10/Rx.min.js"></script>
+  <script>
+
+    class Request {
+
+      defalutConfig = {}
+
+      constructor() { }
+
+      post() {
+
+      }
+
+      get() {
+
+      }
+
+      static create(config) {
+
+      }
+    }
+    
+    class Repay {
+
+      amount = 100
+
+      constructor() {
+        if (Repay.instance) {
+          return Repay.instance
+        }
+        Repay.instance = this
+      }
+
+      use(hadUse) {
+        this.amount -= hadUse
+      }
+    }
+
+    const rep = new Repay()
+
+    rep.use(50)
+
+    console.log(rep.amount)
+
+    const pay = new Repay()
+
+    console.log(pay.amount)
+
+  </script>
+</body>
+
+</html>
