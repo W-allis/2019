@@ -29,8 +29,7 @@ module.exports = {
 	mode: 'development',
 
 	entry: {
-		pageOne: './src/pageOne.ts',
-		pageTwo: './src/pageTwo.ts'
+		app: ['babel-polyfill', './src/main.ts'],
 	},
 
 	output: {

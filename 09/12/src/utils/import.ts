@@ -1,0 +1,1 @@
+// export default (path: string) => resolve => import(path).then(resolve)

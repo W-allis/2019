@@ -1,7 +1,13 @@
-export default class ApiService {
+import { Injectable } from '../decorators'
+
+@Injectable()
+export default class RequestService {
+
+  baseUri: string = 'http://www.baidu.com'
+
   constructor() {}
 
-  getName() {
-    return 'wallis'
+  post(AjaxOptions) {
+
   }
 }

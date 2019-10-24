@@ -5,9 +5,9 @@ import FormComponent from './form/form.component'
 import ApiService from '../service/request.service'
 
 @Module({
-  components: [
+  components: {
     FormComponent
-  ],
+  },
   provides: [ApiService]
 })
 export default class ComponentsModule { }

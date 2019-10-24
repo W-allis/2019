@@ -19,6 +19,6 @@ export default function Event(options: EventInterface) {
       }, options.catch)
     }
 
-    // fe._events.push(wrap)
+    fe._events.push(wrap)
   }
 }
