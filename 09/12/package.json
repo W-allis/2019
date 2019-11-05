@@ -18,6 +18,7 @@
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "raw-loader": "^3.1.0",
+    "reflect-metadata": "^0.1.13",
     "style-loader": "^1.0.0",
     "text-loader": "0.0.1",
     "ts-loader": "^6.0.4",

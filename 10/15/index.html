@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = 'gfaghashgasfhasdfhfdhdfhdf'
+                //   'GFAGHASHGASFHASDFHFDHDFHDF'
+        function foo(str, callback) {
+            const step = 3
+
+            return `${callback(str.slice(0, step))}${str.length > step ? foo(str.slice(step, str.length), callback) : ''}`
+        }    
+        console.log(foo(str, function(str) {
+            return str.toUpperCase()
+        }))
+    </script>
+</body>
+</html>
