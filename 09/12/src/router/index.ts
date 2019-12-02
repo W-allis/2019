@@ -26,6 +26,21 @@ function handleOnpopstate() {
 }
 
 function match(url, router) {
+  const result: Array<any> = []
+
+  for (let item of router) {
+    const reg = new RegExp(router.path)
+  }
 
   return true
+}
+
+abstract class Router_d {
+  abstract beforeEach(callback: (to, from, next) => void): void
+}
+
+class R_outer implements Router_d {
+  beforeEach(): void {
+
+  }
 }

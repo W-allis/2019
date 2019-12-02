@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <button class="hash">script</button>
+  <button class="history">script</button>
+
+  <script>
+    var _hash = document.querySelector('.hash')
+    var _history = document.querySelector('.history')
+
+    _hash.onclick = function() {
+      location = '#/login'
+    }
+
+    _history.onclick = function() {
+      history.pushState({ bar: 'foo' }, 'page', '?login')
+    }
+
+    window.onhashchange = function() {
+      console.log(location, history)
+    }
+
+    window.onpopstate = function() {
+      console.log(location, history)
+    }
+  </script>
+</body>
+</html>

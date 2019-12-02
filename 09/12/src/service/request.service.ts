@@ -8,6 +8,6 @@ export default class RequestService {
   constructor() {}
 
   post(AjaxOptions) {
-
+    
   }
 }
