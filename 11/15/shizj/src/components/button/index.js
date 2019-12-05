@@ -16,9 +16,10 @@ export default class button extends Component {
         className={`
           cr-button 
           cr-button__${this.props.type || 'default'}
-          ${this.props.disabled ? 'cr-button__disabled' : ''}
+          cr-button__${this.props.size || 'medium'}
+          ${this.props.disabled ? 'is-disabled' : ''}
         `}>
-        <span>{this.props.children}</span>
+        {this.props.children}
       </button>
     )
   }

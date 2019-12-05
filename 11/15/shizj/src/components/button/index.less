@@ -1,16 +1,22 @@
 @import '../../styles/variable.less'; 
 
 .cr-button {
-    padding: 0 15px;
     border-width: 1px;
     border-style: solid;
+    line-height: 1;
+    cursor: pointer;
+    &.is-disabled {
+      cursor: not-allowed;
+    }
 }
 
 .cr-button__primary {
+    color: #fff;
     background-color: @primary;
 }
 
 .cr-button__default {
+    color: @base_color;
     background-color: @default;
 }
 
@@ -26,10 +32,35 @@
     background-color: @success;
 }
 
-.cr-button__dash {
-    border-style: dashed;
+.cr-button__text {
+    color: @primary;
+    border-width: 0;
 }
 
-.cr-button__text {
-    border-width: 0;
+.cr-button__disabled {
+    cursor: not-allowed;
+}
+
+.cr-button__large {
+    font-size: 14px;
+    border-radius: 4px;
+    padding: 12px 20px;
+}
+
+.cr-button__medium {
+    font-size: 14px;
+    border-radius: 4px;
+    padding: 10px 20px;
+}
+
+.cr-button__small {
+    font-size: 12px;
+    border-radius: 3px;
+    padding: 9px 15px;
+}
+
+.cr-button__mini {
+    font-size: 12px;
+    border-radius: 3px;
+    padding: 7px 15px;
 }
