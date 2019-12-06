@@ -1,0 +1,18 @@
+.cr-select {
+  display: inline-block;
+  .cr-select-dropdown {
+    padding: 10px 0;
+    margin-top: 5px;
+    border: 1px solid #d1dbe5;
+    box-shadow: 0 2px 4px rgba(0,0,0,.12), 0 0 6px rgba(0,0,0,.12);
+  }
+  .cr-input-inner {
+    cursor: pointer;
+  }
+  .cr-input__suffix {
+    transition: rotate .28s;
+  }
+  &.is-active .cr-input__suffix {
+    transform: rotate(-180deg);
+  }
+}

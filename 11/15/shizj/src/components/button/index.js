@@ -18,9 +18,16 @@ export default class button extends Component {
           cr-button__${this.props.type || 'default'}
           cr-button__${this.props.size || 'medium'}
           ${this.props.disabled ? 'is-disabled' : ''}
-        `}>
+        `}
+        onClick={ this.handleClick.bind(this) }
+        >
         {this.props.children}
       </button>
     )
+  }
+
+  handleClick(event) {
+    console.log(this.props)
+    this.props.onClick(event)
   }
 }

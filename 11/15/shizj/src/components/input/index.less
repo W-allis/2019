@@ -6,8 +6,8 @@
 @miniHeight: 26px;
 
 .cr-input {
-  display: inline-block;
   position: relative;
+  display: inline-block;
   &.is-disabled .cr-input-inner{
     cursor: not-allowed;
     background-color: #f5f7fa;
@@ -21,6 +21,13 @@
     border-width: 1px;
     border-radius: 4px;
     color: @base_color;
+    transition: all .18s;
+    &:focus {
+      border-color: @primary;
+    }
+  }
+  & ~ .cr-input {
+    margin-left: 15px;
   }
 }
 
@@ -45,10 +52,11 @@
 }
 
 .cr-input-suffix .cr-input-inner {
-  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .cr-input__suffix {
+  text-align: center;
   height: 100%;
   position: absolute;
   right: 5px;

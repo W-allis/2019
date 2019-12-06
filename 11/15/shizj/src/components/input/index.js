@@ -21,19 +21,26 @@ export default class Input extends Component {
           autoFocus={ this.props.autoFocus }
           value={ this.props.value }
           disabled={ this.props.disabled } 
+          readOnly={ this.props.readOnly }
           onChange={ this.handleOnChange.bind(this) }></input>
-        <span className={`
-          cr-input__suffix 
-          `}>
-            <i className={`
-              ${ this.props.icon || '' }
-              `}></i>
-          </span>
+        {
+          this.props.icon &&
+          (
+            <span className={`
+              cr-input__suffix 
+              `}>
+              <i className={`
+                ${ this.props.icon || '' }
+                `}></i>
+            </span>
+          )
+        }
       </div>
     )
   }
 
   handleOnChange(event) {
+    console.log(this)
     this.props.onUpdateValue(event.target.value)
   }
 }
