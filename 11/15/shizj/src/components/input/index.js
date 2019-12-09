@@ -22,7 +22,8 @@ export default class Input extends Component {
           value={ this.props.value }
           disabled={ this.props.disabled } 
           readOnly={ this.props.readOnly }
-          onChange={ this.handleOnChange.bind(this) }></input>
+          onChange={ this.handleOnChange.bind(this) }
+          onClick={ this.handleOnClick.bind(this) }></input>
         {
           this.props.icon &&
           (
@@ -40,7 +41,9 @@ export default class Input extends Component {
   }
 
   handleOnChange(event) {
-    console.log(this)
-    this.props.onUpdateValue(event.target.value)
+    this.props.onUpdateValue && this.props.onUpdateValue(event.target.value)
+  }
+  handleOnClick(event) {
+    this.props.onClick && this.props.onClick(event.target.value)
   }
 }

@@ -32,7 +32,7 @@ export default class App extends Component {
         <EInput disabled={ true } icon="loading" value={ this.state.foo } c-model={ this.state.foo } onUpdateValue={ this.handleUpdateValue.bind(this) }></EInput>
         <br></br>
         select: 
-        <ESelect value={ this.state.foo } onChange={ this.modelBind.bind(this) }>
+        <ESelect value={ this.state.foo } onChange={ this.handleSelectChange.bind(this) }>
           {
             this.state.list.map((item, index) => <ESelectItem key={ index } value={ item.value } label={ item.label } disabled={ item.disabled }></ESelectItem>)
           }
@@ -74,6 +74,12 @@ export default class App extends Component {
   doubleBind(event) {
     this.setState({
       foo: event.target.value
+    })
+  }
+
+  handleSelectChange(value) {
+    this.setState({
+      foo: value 
     })
   }
 }

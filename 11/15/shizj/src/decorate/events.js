@@ -1,5 +1,8 @@
 export function stop(stop) {
-  return (...args) => {
-    console.log(args)
+  return (target, eventHandler) => {
+    // console.log(args)
+    return (...props) => {
+      eventHandler.call(target, ...props)
+    }
   }
 }

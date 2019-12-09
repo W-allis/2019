@@ -1,11 +1,20 @@
+@import '../../styles/variable.less';
+
 .cr-select-item {
   cursor: pointer;
-  padding: 8px 10px;
-  &:hover:not(.is-disabled) {
-    background: #e4e8f1;
+  padding: 8px 20px;
+  // &:hover:not(.is-disabled) {
+  //   background: #f5f7fa;
+  // }
+  &.hover {
+    background: #f5f7fa;
   }
   &.is-disabled {
     color: #bfcbd9;
     cursor: not-allowed;
+  }
+  &.is-active {
+    color: @primary;
+    font-weight: 700;
   }
 }
