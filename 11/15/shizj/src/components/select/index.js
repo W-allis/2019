@@ -7,6 +7,7 @@ import { stop } from '../../decorate/events'
 import './index.less'
 // import Emitter from '../../utils/emitter'
 
+// todo 注入多个实例
 export default class Select extends Component {
   componentName = 'cr-select'
 
@@ -22,7 +23,6 @@ export default class Select extends Component {
 
   render() {
     return (
-      // todo 整个select为disabled状态时
       <div 
         ref="select"
         className={`
@@ -32,9 +32,16 @@ export default class Select extends Component {
         `}
         onClick={ this.handleClick.bind(this) }>
         <EInput 
+          ref="input"
           value={ this.state.select || this.props.value } 
           readOnly={ true } 
           icon={`fa fa-angle-down`}
+          placeholder={ this.props.placeholder }
+          autoComplete={ this.props.autoComplete }
+          autoFocus={ this.props.autoFocus }
+          disabled={ this.props.disabled }
+          focus={ this.props.focus }
+          blur={ this.props.blur }
           onClick={ this.handleDropDown.bind(this) }></EInput>
           {
             this.state.active ? (
@@ -60,6 +67,8 @@ export default class Select extends Component {
   handleDropDown() {
     this.setState({
       active: !this.state.active
+    }, _ => {
+      this.props['visible-change'](this.state.active)
     })
   }
 
@@ -69,11 +78,23 @@ export default class Select extends Component {
       select: label || value
     })
   }
+
   // todo 点击其他地方时，关闭dropdown，类似vue:v-clickoutside
   handleClick(event) {
     const instance = this.refs.select.contains(event.target)
     if (!instance) {
       this.close()
     }
+  }
+
+  focus() {
+    if (!this.props.disabled) {
+      this.refs.input.focus()
+    }
+  }
+
+  blur() {
+    this.refs.input.blur()
+    this.close()
   }
 }
