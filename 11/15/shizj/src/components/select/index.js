@@ -5,6 +5,7 @@ import EDropdown from '../dropdown'
 import { stop } from '../../decorate/events'
 
 import './index.less'
+import { provide } from '../../decorate/injectable'
 // import Emitter from '../../utils/emitter'
 
 // todo 注入多个实例
@@ -16,6 +17,8 @@ export default class Select extends Component {
     active: false,
     select: ''
   }
+
+  @provide() select = this
 
   componentDidMount() {
     // this.on('on-change', this.handleChange)
@@ -42,7 +45,7 @@ export default class Select extends Component {
           disabled={ this.props.disabled }
           focus={ this.props.focus }
           blur={ this.props.blur }
-          onClick={ this.handleDropDown.bind(this) }></EInput>
+          onClick={ this.toggle.bind(this) }></EInput>
           {
             this.state.active ? (
               <div className={`cr-select-dropdown`}>
@@ -59,16 +62,26 @@ export default class Select extends Component {
   close() {
     this.setState({
       active: false
+    }, _ => {
+      this.props['visible-change'] && this.props['visible-change'](false)
+    })
+  }
+
+  show() {
+    this.setState({
+      active: true
+    }, _ => {
+      this.props['visible-change'] && this.props['visible-change'](true)
     })
   }
 
   // todo stop修饰符阻止事件冒泡
   @stop(true)
-  handleDropDown() {
+  toggle() {
     this.setState({
       active: !this.state.active
     }, _ => {
-      this.props['visible-change'](this.state.active)
+      this.props['visible-change'] && this.props['visible-change'](this.state.active)
     })
   }
 
@@ -90,6 +103,7 @@ export default class Select extends Component {
   focus() {
     if (!this.props.disabled) {
       this.refs.input.focus()
+      this.show()
     }
   }
 

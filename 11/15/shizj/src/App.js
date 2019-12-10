@@ -22,7 +22,7 @@ export default class App extends Component {
   
   render() {
     return (
-      <div>
+      <div onClick={ this.handleParentClick.bind(this) }>
         <h1 className={ this.state.flag ? 'red' : 'green' } onClick={ this.changeStatus.bind(this) }>当flag是true的时候，我应该是{ this.flag }红色</h1>
         button:
         <EButton type="primary" c-loading={ this.state.loading } onClick={ this.modelBind.bind(this) }>click</EButton>
@@ -32,7 +32,7 @@ export default class App extends Component {
         <EInput disabled={ true } icon="loading" value={ this.state.foo } c-model={ this.state.foo } onUpdateValue={ this.handleUpdateValue.bind(this) }></EInput>
         <br></br>
         select: 
-        <ESelect value={ this.state.foo } multiple={ true } onChange={ this.handleSelectChange.bind(this) }>
+        <ESelect ref="select" value={ this.state.foo } multiple={ true } onChange={ this.handleSelectChange.bind(this) }>
           {
             this.state.list.map((item, index) => <ESelectItem key={ index } value={ item.value } label={ item.label } disabled={ item.disabled }></ESelectItem>)
           }
@@ -52,13 +52,14 @@ export default class App extends Component {
     // this.setState(state => ({
     //   flag: !this.state.flag
     // }))
-    this.setState({
-      flag: !this.state.flag
-    }, _ => {
-      console.log(this.state)
-    })
+    // this.setState({
+    //   flag: !this.state.flag
+    // }, _ => {
+    //   console.log(this.state)
+    // })
 
-    console.log(this.state)
+    // console.log(this.state)
+    this.refs.select.focus()
   }
 
   handleUpdateValue(value) {
@@ -81,5 +82,9 @@ export default class App extends Component {
     this.setState({
       foo: value 
     })
+  }
+
+  handleParentClick() {
+    console.log(1234)
   }
 }

@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 
 import './item.less'
+import { inject } from '../../decorate/injectable'
 
 export default class SelectItem extends Component {
   componentName = 'cr-select-item'
+
+  @inject(['select']) select
 
   render() {
     return (
@@ -25,7 +28,7 @@ export default class SelectItem extends Component {
     if (!this.props.disabled) {
       // todo 建议使用 emit on eventbus处理
       this.parent.handleChange({ value: this.props.value, label: this.props.label })
-      this.parent.handleDropDown()
+      this.parent.close()
     }
   }
 
@@ -40,7 +43,7 @@ export default class SelectItem extends Component {
   get hoverIndex() {
     return this.parentProps.children.findIndex(({ props }) => props.value === this.props.value)
   }
-  // 建议使用注解将select注入进来
+  // todo 建议使用注解将select注入进来
   get parent() {
     return this.props.parent
   }

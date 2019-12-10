@@ -54,11 +54,11 @@ export default class Input extends Component {
 
   focus(event) {
     this.refs.input.focus()
-    this.props.focus(event)
+    this.props.focus && this.props.focus(event)
   }
 
   blur(event) {
     this.refs.input.blur()
-    this.props.blur(event)
+    this.props.blur && this.props.blur(event)
   }
 }
