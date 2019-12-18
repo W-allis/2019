@@ -1,0 +1,33 @@
+.cr-tab {
+  display: flex;
+  overflow: auto;
+  .cr-tab__headers {
+    // background: #f5f7fa;
+  }
+  .cr-tab__content {
+    flex: 1;
+  }
+  &::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+    display: none;
+  }
+  &.cr-tab__horizontal {
+    flex-direction: row;
+  }
+  &.cr-tab__vertical {
+    flex-direction: column;
+    width: auto;
+  }
+  &.cr-tab__fill {
+    justify-content: center;
+    .cr-tab-item {
+      flex: 1;
+    }
+  }
+  &.cr-tab__horizontal.cr-tab__auto {
+    .cr-tab-item {
+      flex-shrink: 0;
+    }
+  }
+}

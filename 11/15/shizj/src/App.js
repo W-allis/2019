@@ -5,7 +5,10 @@ import EButton from './components/button'
 import EInput from './components/input'
 import ESelect from './components/select'
 import ESelectItem from './components/select/item'
-
+import Elevator from './components/elevator'
+import ETab from './components/tab'
+import ETabPane from './components/tab/tab-pane'
+import EInputNumber from './components/input-number'
 // import { Button } from 'antd'
 
 export default class App extends Component {
@@ -13,10 +16,32 @@ export default class App extends Component {
     flag: true,
     foo: '测试',
     loading: false,
+    inputnumber: 0,
+    elevator: 'goods',
+    elevators: [
+      { value: 'goods', label: '商品' },
+      { value: 'comment', label: '评论' },
+      { value: 'hot', label: '热销热销热销' },
+      { value: 'cold', label: '冬季' },
+      { value: 'spring', label: '春季' },
+      { value: 'fall', label: '秋季', disabled: true }
+    ],
     list: [
       { value: 'name', label: '名称' },
       { value: 'age', label: '年龄' },
-      { value: 'blood', label: '血型', disabled: true }
+      { value: 'blood', label: '血型', disabled: true },
+      { value: 'age', label: '年龄年龄年龄' },
+      { value: 'age', label: '年龄年龄' },
+      { value: 'age', label: '年龄年龄年龄年龄' },
+      { value: 'age', label: '年年龄龄' },
+      { value: 'age', label: '年年龄年龄龄' },
+      { value: 'age', label: '年龄' },
+      { value: 'age', label: '年龄' },
+      { value: 'age', label: '年龄' },
+      { value: 'age', label: '年龄' },
+      { value: 'age', label: '年龄' },
+      { value: 'age', label: '年龄' },
+      { value: 'age', label: '年龄' }
     ]
   }
   
@@ -38,8 +63,34 @@ export default class App extends Component {
           }
         </ESelect>
 
-
+        elevator:
+        <Elevator>
+          
+        </Elevator>    
         <p>{ this.state.foo }</p>
+
+        <ETab 
+          style={`height: 400px;`}
+          mode={ 'auto' } 
+          border={ true } 
+          tab-position={ 'top' } 
+          value={ this.state.elevator } 
+          onChange={ this.handleTabChange.bind(this) } 
+          onTabClick={ this.handleTabClick.bind(this) }>
+          {
+            this.state.elevators.map((item, index) => 
+              (<ETabPane 
+                key={ index } 
+                label={ item.label }
+                disabled={ item.disabled } 
+                name={ item.value }>
+                  { item.label }
+              </ETabPane>))
+          }
+        </ETab>
+        <EInputNumber value={ this.state.inputnumber } onChange={ this.handleInputNumberChange.bind(this) }>
+
+        </EInputNumber>
       </div>
     )
   }
@@ -86,5 +137,21 @@ export default class App extends Component {
 
   handleParentClick() {
     console.log(1234)
+  }
+
+  handleTabClick(event) {
+    // console.log(event)
+  }
+
+  handleTabChange(value) {
+    this.setState({
+      elevator: value
+    })
+  }
+
+  handleInputNumberChange(value) {
+    this.setState({
+      inputnumber: value
+    })
   }
 }

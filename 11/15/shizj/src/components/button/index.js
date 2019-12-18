@@ -7,8 +7,8 @@ export default class button extends Component {
   //   super()
   // }
   componentDidMount() {
-    console.log(this.props)
-    console.log(this.props.children)
+    // console.log(this.props)
+    // console.log(this.props.children)
   }
   render() {
     return (
@@ -27,7 +27,7 @@ export default class button extends Component {
   }
 
   handleClick(event) {
-    console.log(this.props)
+    // console.log(this.props)
     this.props.onClick(event)
   }
 }

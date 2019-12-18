@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function getRelativePath(source, target) {
+	var sep = (source.indexOf("/") !== -1) ? "/" : "\\",
+		targetArr = target.split(sep),
+		sourceArr = source.split(sep),
+		filename = targetArr.pop(),
+		targetPath = targetArr.join(sep),
+		relativePath = "";
+	
+	while (targetPath.indexOf(sourceArr.join(sep)) === -1) {
+		sourceArr.pop();
+		relativePath += ".." + sep;
+	}
+	
+	var relPathArr = targetArr.slice(sourceArr.length);
+	relPathArr.length && (relativePath += relPathArr.join(sep) + sep);
+	
+	return relativePath + filename;
+}
+
+console.log(getRelativePath("/users/eric/src/csslint", "/users/eric/style.css"));
+		</script>
+	</body>
+</html>

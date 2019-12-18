@@ -5,9 +5,29 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 	<title>Document</title>
-	<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
-	<i class="fa fa-angle-down"></i>
+	<div class="word" id="watermaskArea1">
+
+        <h1>我们的梦想来自内心深处的孤独</h1>>
+        <p align="center" style="font-size:20pt;font-weight:bold;">JS导出Word文档</p>
+        <div>我们来自同一个世界</div>
+    </div>
+    <input type="button" value="导出word">
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+    <script type="text/javascript" src="FileSaver.js"></script>
+    <script type="text/javascript" src="jquery.wordexport.js"></script>
+    <script src="../12/src/watermark.js" type="text/javascript" charset="utf-8"></script>
+    <!--<script src="index.js" type="text/javascript" charset="utf-8"></script>-->
+    <script>
+        $(function () {
+        	watermark.init({
+                    watermark_parent_selector: '#watermaskArea1'
+                })
+            $("input[type='button']").click(function (event) {
+                $(".word").wordExport('word文档');
+            });
+        })
+    </script>
 </body>
 </html>

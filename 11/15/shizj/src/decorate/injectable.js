@@ -7,13 +7,13 @@ export function provide(key) {
     // console.log(args)
     // store[key] = target[key]
     // Reflect.get
-    console.log(Reflect.construct(target.constructor, {}))
-    console.log(target, key, target[key])
+    // console.log(Reflect.construct(target.constructor, {}))
+    // console.log(target, key, target[key])
   }
 }
 
 export function inject(key) {
   return (...args) => {
-    console.log(args)
+    // console.log(args)
   }
 }
