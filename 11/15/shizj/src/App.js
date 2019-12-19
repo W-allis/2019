@@ -53,8 +53,8 @@ export default class App extends Component {
         <EButton type="primary" c-loading={ this.state.loading } onClick={ this.modelBind.bind(this) }>click</EButton>
         <br></br>  
         input: 
-        <EInput value={ this.state.foo } c-model={ this.state.foo } onUpdateValue={ this.handleUpdateValue.bind(this) }></EInput>
-        <EInput disabled={ true } icon="loading" value={ this.state.foo } c-model={ this.state.foo } onUpdateValue={ this.handleUpdateValue.bind(this) }></EInput>
+        <EInput value={ this.state.foo } c-model={ this.state.foo } onChange={ this.handleUpdateValue.bind(this) }></EInput>
+        <EInput disabled={ true } icon="loading" value={ this.state.foo } c-model={ this.state.foo } onChange={ this.handleUpdateValue.bind(this) }></EInput>
         <br></br>
         select: 
         <ESelect ref="select" value={ this.state.foo } multiple={ true } onChange={ this.handleSelectChange.bind(this) }>
@@ -88,7 +88,7 @@ export default class App extends Component {
               </ETabPane>))
           }
         </ETab>
-        <EInputNumber value={ this.state.inputnumber } onChange={ this.handleInputNumberChange.bind(this) }>
+        <EInputNumber min={ 0 } disabled={ false } step={ 5 } value={ this.state.inputnumber } onChange={ this.handleInputNumberChange.bind(this) }>
 
         </EInputNumber>
       </div>
@@ -150,6 +150,7 @@ export default class App extends Component {
   }
 
   handleInputNumberChange(value) {
+    console.log(value)
     this.setState({
       inputnumber: value
     })

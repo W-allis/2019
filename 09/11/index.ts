@@ -171,3 +171,19 @@ loginForm.validate((valid: boolean) => {
 })
 
 console.log(loginForm)
+
+class Foo<T> {
+  value: T
+  
+  bar: (x: T, y: T) => T
+  
+  constructor() {
+
+  }
+}
+
+const foo = new Foo<number>()
+
+foo.value = 1
+
+foo.bar = (x: number, y: number) => x * y

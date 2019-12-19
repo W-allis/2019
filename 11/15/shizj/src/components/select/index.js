@@ -43,8 +43,10 @@ export default class Select extends Component {
           autoComplete={ this.props.autoComplete }
           autoFocus={ this.props.autoFocus }
           disabled={ this.props.disabled }
-          focus={ this.props.focus }
-          blur={ this.props.blur }
+          onFocus={ this.props.onFocus }
+          onBlur={ this.props.onBlur }
+          onInput={ this.props.onInput }
+          onChange={ this.props.onChange }
           onClick={ this.toggle.bind(this) }></EInput>
           {
             this.state.active ? (

@@ -1,18 +1,17 @@
 @import '../../styles/variable.less';
 
-@largeHeight: 38px;
-@mediumHeight: 34px;
-@smallHeight: 30px;
-@miniHeight: 26px;
-
 .cr-input {
   position: relative;
   display: inline-block;
+  width: 100%;
   &.is-disabled .cr-input-inner{
     cursor: not-allowed;
     background-color: #f5f7fa;
     border-color: #e4e7ed;
     color: #c0c4cc;
+  }
+  &:hover:not(.is-disabled) .cr-input-inner{
+    border-color: @hover_border_color;
   }
   .cr-input-inner {
     padding: 0 15px;
@@ -22,6 +21,9 @@
     border-radius: 4px;
     color: @base_color;
     transition: all .18s;
+    box-sizing: border-box;
+    width: 100%;
+    cursor: pointer;
     &:focus {
       border-color: @primary;
     }
@@ -31,22 +33,22 @@
   }
 }
 
-.cr-input__large {
+.cr-input__large .cr-input-inner{
   height: @largeHeight;
   line-height: @largeHeight;
 }
 
-.cr-input__medium {
+.cr-input__medium .cr-input-inner{
   height: @mediumHeight;
   line-height: @mediumHeight;
 }
 
-.cr-input__small {
+.cr-input__small .cr-input-inner{
   height: @smallHeight;
   line-height: @smallHeight;
 }
 
-.cr-input__mini {
+.cr-input__mini .cr-input-inner{
   height: @miniHeight;
   line-height: @miniHeight;
 }

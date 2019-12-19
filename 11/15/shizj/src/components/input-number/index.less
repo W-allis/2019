@@ -1,0 +1,100 @@
+@import '../../styles/variable.less';
+
+@largeWidth: 180px;
+@mediumWidth: 200px;
+@smallWidth: 130px;
+@miniWidth: 130px;
+
+.cr-input-number {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  &.is-disabled {
+    .cr-input-button {
+      color: #c0c4cc;
+      cursor: not-allowed;
+    }
+  }
+  &:not(.is-disabled) .cr-input-button {
+    &:hover:not(.is-disabled) {
+      color: @primary;
+      & ~ .cr-input .cr-input-inner {
+        border-color: @primary;
+      }
+    }
+  }
+  .cr-input-button {
+    position: absolute;
+    top: 1px;
+    z-index: 1;
+    text-align: center;
+    background-color: #f5f7fa;
+    cursor: pointer;
+    
+    &.is-disabled {
+      color: #c0c4cc;
+      cursor: not-allowed;
+    }
+    &.cr-input-decrease {
+      left: 1px;
+      border-right: 1px solid @border_color;
+    }
+    &.cr-input-increase {
+      right: 1px;
+      border-left: 1px solid @border_color;
+    }
+  }
+  .cr-input-inner {
+    text-align: center;
+  }
+  &.cr-input-number__large {
+    width: @largeWidth;
+    .cr-input-button {
+      font-size: @largeFontSize + 6;
+      width: @largeHeight;
+      height: @largeHeight - 2;
+      line-height: @mediumHeight - 8;
+    }
+    .cr-input-inner {
+      padding: 0 @largeHeight + 10;
+    }
+  }
+  &.cr-input-number__medium {
+    width: @mediumWidth;
+    .cr-input-button {
+      font-size: @mediumFontSize + 6;
+      width: @mediumHeight;
+      height: @mediumHeight - 2;
+      line-height: @mediumHeight - 8;
+    }
+    .cr-input-inner {
+      padding: 0 @mediumHeight + 10;
+    }
+  }
+  &.cr-input-number__small {
+    width: @smallWidth;
+    .cr-input-button {
+      font-size: @smallFontSize + 6;
+      width: @smallHeight;
+      height: @smallHeight - 2;
+      line-height: @mediumHeight - 8;
+    }
+    .cr-input-inner {
+      padding: 0 @smallHeight + 10;
+    }
+  }
+  &.cr-input-number__mini {
+    width: @miniWidth;
+    .cr-input-button {
+      font-size: @miniFontSize + 6;
+      width: @miniHeight;
+      height: @miniHeight - 2;
+      line-height: @mediumHeight - 8;
+    }
+    .cr-input-inner {
+      padding: 0 @miniHeight + 10;
+    }
+  }
+  
+}

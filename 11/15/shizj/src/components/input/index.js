@@ -25,8 +25,9 @@ export default class Input extends Component {
           value={ this.props.value }
           disabled={ this.props.disabled } 
           readOnly={ this.props.readOnly }
-          onFocus={ this.props.focus }
-          onBlur={ this.props.blur }
+          onFocus={ this.handleOnFocus.bind(this) }
+          onBlur={ this.handleOnBlur.bind(this) }
+          onInput={ this.handleOnInput.bind(this) }
           onChange={ this.handleOnChange.bind(this) }
           onClick={ this.handleOnClick.bind(this) }></input>
         {
@@ -46,10 +47,22 @@ export default class Input extends Component {
   }
 
   handleOnChange(event) {
-    this.props.onUpdateValue && this.props.onUpdateValue(event.target.value)
+    this.props.onChange && this.props.onChange(event.target.value, event)
   }
   handleOnClick(event) {
-    this.props.onClick && this.props.onClick(event.target.value)
+    this.props.onClick && this.props.onClick(event)
+  }
+
+  handleOnInput(event) {
+    this.props.onInput && this.props.onInput(event.target.value)
+  }
+
+  handleOnBlur(event) {
+    this.props.onBlur && this.props.onBlur(event)
+  }
+
+  handleOnFocus(event) {
+    this.props.onFocus && this.props.onFocus(event)
   }
 
   focus(event) {
@@ -60,5 +73,9 @@ export default class Input extends Component {
   blur(event) {
     this.refs.input.blur()
     this.props.blur && this.props.blur(event)
+  }
+
+  select() {
+    
   }
 }
