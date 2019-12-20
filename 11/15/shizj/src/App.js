@@ -10,6 +10,8 @@ import ETab from './components/tab'
 import ETabPane from './components/tab/tab-pane'
 import EInputNumber from './components/input-number'
 // import { Button } from 'antd'
+import ETooltip from './components/tooltip'
+import EAlert from './components/alert'
 
 export default class App extends Component {
   state = {
@@ -91,6 +93,10 @@ export default class App extends Component {
         <EInputNumber min={ 0 } disabled={ false } step={ 5 } value={ this.state.inputnumber } onChange={ this.handleInputNumberChange.bind(this) }>
 
         </EInputNumber>
+
+        <ETooltip></ETooltip>
+
+        <EAlert>fasfs</EAlert>
       </div>
     )
   }

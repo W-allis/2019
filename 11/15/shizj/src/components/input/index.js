@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import { stop } from '../../decorate/events'
+
 import './index.less'
 
 export default class Input extends Component {
@@ -49,6 +51,7 @@ export default class Input extends Component {
   handleOnChange(event) {
     this.props.onChange && this.props.onChange(event.target.value, event)
   }
+  @stop()
   handleOnClick(event) {
     this.props.onClick && this.props.onClick(event)
   }
