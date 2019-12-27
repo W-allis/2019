@@ -46,6 +46,10 @@ export default class App extends Component {
       { value: 'age', label: '年龄' }
     ]
   }
+
+  componentDidMount() {
+    
+  }
   
   render() {
     return (
