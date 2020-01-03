@@ -78,7 +78,7 @@ export default class Select extends Component {
   }
 
   // todo stop修饰符阻止事件冒泡
-  @stop(true)
+  @stop
   toggle() {
     this.setState({
       active: !this.state.active

@@ -8,7 +8,7 @@ import './index.less'
 export default class Tab extends Component {
 
   componentDidMount() {
-    console.log(this)
+    // console.log(this)
   }
 
   render() {

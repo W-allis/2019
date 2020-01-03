@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export default class Tooltip extends Component {
   componentDidMount() {
-    console.log(this)
+    // console.log(this)
   }
 
   render() {

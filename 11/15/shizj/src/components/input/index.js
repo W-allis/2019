@@ -6,6 +6,7 @@ import './index.less'
 
 export default class Input extends Component {
   componentDidMount() {
+    // console.log(this.handleOnClick)
   }
 
   render() {
@@ -48,36 +49,44 @@ export default class Input extends Component {
     )
   }
 
+  @stop
   handleOnChange(event) {
     this.props.onChange && this.props.onChange(event.target.value, event)
   }
-  @stop()
+
+  @stop
   handleOnClick(event) {
     this.props.onClick && this.props.onClick(event)
   }
 
+  @stop
   handleOnInput(event) {
     this.props.onInput && this.props.onInput(event.target.value)
   }
 
+  @stop
   handleOnBlur(event) {
     this.props.onBlur && this.props.onBlur(event)
   }
 
+  @stop
   handleOnFocus(event) {
     this.props.onFocus && this.props.onFocus(event)
   }
 
+  @stop
   focus(event) {
     this.refs.input.focus()
     this.props.focus && this.props.focus(event)
   }
 
+  @stop
   blur(event) {
     this.refs.input.blur()
     this.props.blur && this.props.blur(event)
   }
 
+  @stop
   select() {
     
   }

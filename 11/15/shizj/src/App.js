@@ -12,6 +12,7 @@ import EInputNumber from './components/input-number'
 // import { Button } from 'antd'
 import ETooltip from './components/tooltip'
 import EAlert from './components/alert'
+import ETest from './components/test'
 
 export default class App extends Component {
   state = {
@@ -101,6 +102,8 @@ export default class App extends Component {
         <ETooltip></ETooltip>
 
         <EAlert>fasfs</EAlert>
+
+        <ETest age="12"></ETest>
       </div>
     )
   }
