@@ -14,6 +14,8 @@ import ETooltip from './components/tooltip'
 import EAlert from './components/alert'
 import ETest from './components/test'
 
+import UseReducerComp from './views/useReducer'
+
 export default class App extends Component {
   state = {
     flag: true,
@@ -53,11 +55,15 @@ export default class App extends Component {
   }
   
   render() {
+
     return (
       <div onClick={ this.handleParentClick.bind(this) }>
+        <UseReducerComp></UseReducerComp>  
+
         <h1 className={ this.state.flag ? 'red' : 'green' } onClick={ this.changeStatus.bind(this) }>当flag是true的时候，我应该是{ this.flag }红色</h1>
         button:
         <EButton type="primary" c-loading={ this.state.loading } onClick={ this.modelBind.bind(this) }>click</EButton>
+        
         <br></br>  
         input: 
         <EInput value={ this.state.foo } c-model={ this.state.foo } onChange={ this.handleUpdateValue.bind(this) }></EInput>

@@ -1,0 +1,12 @@
+{
+  "plugins": ["syntax-dynamic-import"],
+	"presets": [
+		[
+			"@babel/preset-env",
+				{
+          "browers": ["> 1%", "last 2 versions"],
+					"modules": false
+				}
+		]
+	]
+}

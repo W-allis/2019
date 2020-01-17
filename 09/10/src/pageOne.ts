@@ -19,8 +19,7 @@ function fastSort(arr: number[]) {
 
   const compare = <T>(between: T, sync: boolean = true): (item: T) => boolean => (item: T) => item <= between
 
-  const leftOrRight = 
-  result.concat(fastSort(arr.filter(compare(between, true)))).unshift(...fastSort(arr.filter(compare(between))))
+  const leftOrRight = result.concat(fastSort(arr.filter(compare(between, true)))).unshift(...fastSort(arr.filter(compare(between))))
   return result 
 }
 
