@@ -1,4 +1,4 @@
 module.exports = {
-  weinre: false,
+  weinre: true,
   weinrePort: 8096,
 }

@@ -2,7 +2,19 @@ const { override, fixBabelImports, addLessLoader, useBabelRc, addBabelPlugins } 
 const useGzip = true
 const productionGzipExtensions = ['js', 'css']
 
+
 module.exports = override(
+  config => {
+    // console.log(process.env.analyzer)
+    if (process.env.analyzer) {
+      const WebpackBundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+      config.plugins.push(
+        new WebpackBundleAnalyzer()
+      )
+    }
+
+    return config
+  },
   fixBabelImports('import', {
     libraryName: 'antd',
     libraryDirectory: 'es',

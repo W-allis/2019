@@ -12,6 +12,10 @@ const _env = require('../config/dev.config')
 
 const Foo = require('../foo')
 
+// const ip = cmd.get('ipconfig')
+
+// console.log(ip)
+
 module.exports = merge(base, {
   plugins: [
     new HtmlWepbackPlugin({
@@ -25,10 +29,13 @@ module.exports = merge(base, {
     ...(_env.weinre && config.weinreOpen ? [new OpenBrowserWebpackPlugin({ url: `http://localhost:${_env.weinrePort}` })] : [])
   ],
   devServer: {
+    host: '192.168.30.249',
     port: 9536
   }
 })
 
 if (_env.weinre) {
-  cmd.get(`weinre -httpPort ${_env.weinrePort} --all`)
+  // cmd.get(`spy-debugger -p ${_env.weinrePort}`)
+  // cmd.get(`spy-debugger initCA`)
+  cmd.get(`weinre --httpPort ${_env.weinrePort} --boundHost -all-`)
 }
