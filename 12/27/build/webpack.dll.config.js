@@ -6,7 +6,7 @@ module.exports = {
     vendor: ['jquery', 'echarts']
   },
   output: {
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, '../dist/dll'),
     filename: '[name].dll.js',
     publicPath: '',
 

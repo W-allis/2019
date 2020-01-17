@@ -22,7 +22,8 @@
     "webpack-bundle-analyzer": "^3.6.0",
     "webpack-cli": "^3.3.8",
     "webpack-dev-server": "^3.9.0",
-    "webpack-merge": "^4.2.2"
+    "webpack-merge": "^4.2.2",
+    "weinre": "^2.0.0-pre-I0Z7U9OV"
   },
   "dependencies": {
     "echarts": "^4.6.0",
