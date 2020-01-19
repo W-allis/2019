@@ -13,6 +13,10 @@ import EInputNumber from './components/input-number'
 import ETooltip from './components/tooltip'
 import EAlert from './components/alert'
 import ETest from './components/test'
+import ECard from './components/card'
+
+import { Provider } from 'react-redux'
+import store from './store/card'
 
 import UseReducerComp from './views/useReducer'
 
@@ -58,6 +62,10 @@ export default class App extends Component {
 
     return (
       <div onClick={ this.handleParentClick.bind(this) }>
+        <Provider store={ store }>
+          <ECard></ECard>
+        </Provider>
+
         <UseReducerComp></UseReducerComp>  
 
         <h1 className={ this.state.flag ? 'red' : 'green' } onClick={ this.changeStatus.bind(this) }>当flag是true的时候，我应该是{ this.flag }红色</h1>

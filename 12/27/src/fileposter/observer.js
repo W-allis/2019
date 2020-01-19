@@ -18,7 +18,7 @@ export default class Observer {
     }
   }
 
-  subscribeThread(nextOrObserver, error, complete) {
+  subscribe(nextOrObserver, error, complete) {
     this.destination = this._safeObserver(nextOrObserver, error, complete)
     
     // return new 
