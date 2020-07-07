@@ -36,7 +36,9 @@ export default class Input extends Component {
         {
           this.props.icon &&
           (
-            <span className={`
+            <span
+              onClick={ this.handleOnClick.bind(this) }
+              className={`
               cr-input__suffix 
               `}>
               <i className={`

@@ -4,12 +4,13 @@ import './App.css'
 
 import routes from './store/routes'
 // eslint-disable-next-line
-import ERouter from './router'
-import ERouterItem from './router/router-item'
+import RouterComp from './router'
+// import ERouterItem from './router/router-item'
 
 import EContainer from './components/container/container'
 import EHeader from './components/container/header'
 import EMain from './components/container/main'
+import EAside from './components/container/aside'
 // import { Link } from 'react-router-dom'
 // eslint-disable-next-line
 // import EButton from './components/button'
@@ -43,21 +44,28 @@ export default class App extends Component {
             header
           </div>
         </EHeader>
-        <EMain className="app-main">
-          <ERouter>
-            {
-              routes.map((route, index) => (
-                <ERouterItem key={ index } path={ route.path } component={ route.component } children={ route.children }></ERouterItem>
-              ))
+        {/* 注册路由 */}
+        <EContainer>
+          <EAside width="200px"
+            style={
+              {
+                "background": "grey"
+              }
             }
-          </ERouter>
-          {/* <Elevator>
+          >
+
+          </EAside>
+          <EMain className="app-main">
+            <RouterComp routes={routes}>
+            </RouterComp>
+            {/* <Elevator>
             
-          </Elevator>    
-          
-          <ETooltip></ETooltip> */}
-          {/* <ETest age="12"></ETest> */}
-        </EMain>
+              </Elevator>    
+            
+              <ETooltip></ETooltip> */}
+            {/* <ETest age="12"></ETest> */}
+          </EMain>
+        </EContainer>
       </EContainer>
     )
   }

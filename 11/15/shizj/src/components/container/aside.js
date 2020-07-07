@@ -1,12 +1,17 @@
 import React from 'react'
 
-import { Component } from '../../libs'
+// import { Component } from '../../libs'
 
 import { completionUnit } from '../../utils/unit'
 
 import './aside.less'
 
 export default function Aside(props) {
+  // console.log(props)
+  const {
+    style = { }
+  } = props
+
   return (
     <aside
       className={`
@@ -14,6 +19,7 @@ export default function Aside(props) {
       `}
       style={
         {
+          ...style,
           width: completionUnit(props.width)
         }
       }>

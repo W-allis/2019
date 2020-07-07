@@ -6,7 +6,7 @@ import { inject } from '../../decorate/injectable'
 export default class SelectItem extends Component {
   componentName = 'cr-select-item'
 
-  @inject(['select']) select
+  @inject(['select'])
 
   render() {
     return (
@@ -33,6 +33,7 @@ export default class SelectItem extends Component {
   }
 
   handleHover() {
+    // console.log('hover', this.hoverIndex)
     if (!this.props.disabled) {
       this.parent.setState({
         hoverIndex: this.hoverIndex

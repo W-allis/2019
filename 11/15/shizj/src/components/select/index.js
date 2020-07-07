@@ -5,6 +5,7 @@ import EDropdown from '../dropdown'
 import { stop } from '../../decorate/events'
 
 import './index.less'
+// eslint-disable-next-line
 import { provide } from '../../decorate/injectable'
 // import Emitter from '../../utils/emitter'
 
@@ -21,7 +22,7 @@ export default class Select extends Component {
   @provide() select = this
 
   componentDidMount() {
-    // this.on('on-change', this.handleChange)
+    this.on('on-change', this.handleChange)
   }
 
   render() {
