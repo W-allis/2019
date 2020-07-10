@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 
 import './item.less'
 import { inject } from '../../decorate/injectable'
+// eslint-disable-next-line
+import Emitter from '../../utils/emitter'
 
 export default class SelectItem extends Component {
   componentName = 'cr-select-item'
 
-  @inject(['select'])
+  @inject(['select']) select
 
   render() {
     return (
@@ -24,11 +26,18 @@ export default class SelectItem extends Component {
     )
   }
 
+  componentDidMount() {
+    // console.log(this)
+    // console.log(this.select)
+  }
+
   handleClick(event) {
     if (!this.props.disabled) {
       // todo 建议使用 emit on eventbus处理
-      this.parent.handleChange({ value: this.props.value, label: this.props.label })
-      this.parent.close()
+      // this.parent.handleChange({ value: this.props.value, label: this.props.label })
+      this.dispatch('cr-select', 'handleChange', { value: this.props.value, label: this.props.label })
+      // this.parent.close()
+      this.dispatch('cr-select', 'close')
     }
   }
 

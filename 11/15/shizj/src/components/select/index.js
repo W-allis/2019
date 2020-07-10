@@ -6,12 +6,18 @@ import { stop } from '../../decorate/events'
 
 import './index.less'
 // eslint-disable-next-line
-import { provide } from '../../decorate/injectable'
+import { provide, inject } from '../../decorate/injectable'
 // import Emitter from '../../utils/emitter'
 
 // todo 注入多个实例
 export default class Select extends Component {
   componentName = 'cr-select'
+
+  constructor() {
+    super()
+    // console.log(this)
+    console.log(32542)
+  }
 
   state = {
     hoverIndex: null,
@@ -23,6 +29,7 @@ export default class Select extends Component {
 
   componentDidMount() {
     this.on('on-change', this.handleChange)
+    // console.log(this.select)
   }
 
   render() {
@@ -96,6 +103,7 @@ export default class Select extends Component {
   }
 
   // todo 点击其他地方时，关闭dropdown，类似vue:v-clickoutside
+  // @clickoutside()
   handleClick(event) {
     const instance = this.refs.select.contains(event.target)
     if (!instance) {

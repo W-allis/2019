@@ -25,7 +25,8 @@ module.exports = override(
     modifyVars: { '@primary-color': '#1da57a' }
   }),
   ...addBabelPlugins(
-    ["@babel/plugin-proposal-decorators", { "legacy": true }]
+    ["@babel/plugin-proposal-decorators", { "decoratorsBeforeExport": true }],  
+    // ["@babel/plugin-proposal-class-properties", { "loose" : true }]
   ),
   // config => {
   //   console.log(config.plugins)

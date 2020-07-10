@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import './styles/index.less'
 import './App.css'
 
+import { login } from './api/login'
+
 import routes from './store/routes'
 // eslint-disable-next-line
 import RouterComp from './router'
@@ -32,7 +34,10 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    
+    login({
+      username: 'wallis',
+      password: '1435135'
+    })
   }
   
   render() {

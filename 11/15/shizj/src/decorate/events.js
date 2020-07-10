@@ -7,7 +7,7 @@ export function stop(target, instance, descriptor) {
     event.stopPropagation()
     _value.call(this, event)
   }
-
+  // debugger
   descriptor.value = stopPropagation
   return descriptor
 }

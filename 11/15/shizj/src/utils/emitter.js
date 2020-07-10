@@ -16,9 +16,9 @@ export default class Emitter {
     }
   }
 
-  on(event, target) {
-    if (!this.event) {
-      this[event] = target
-    }
-  }
+  // on(event, target) {
+  //   if (!this.event) {
+  //     this[event] = target
+  //   }
+  // }
 }
